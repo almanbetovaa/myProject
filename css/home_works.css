@@ -1,0 +1,129 @@
+.game-container {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background-color: black;
+    border: 2px solid blue;
+    padding: 20px;
+    color: white;
+}
+
+.game-container h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.game-container p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.game-container input {
+    padding: 8px;
+    border: 2px solid blue;
+    margin-right: 10px;
+    border-radius: 5px;
+   /
+    background-color: black;
+    color: #0d1eda;
+}
+.game-container button:hover {
+    background-color: #67a8f1;
+}
+.game-container button {
+    padding: 10px 20px;
+    background-color: #ecf4ff;
+    color: #0d1eda;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.game-container #result {
+    font-size: 18px;
+    margin-top: 20px;
+}
+/* GMAIL BLOCK */
+
+.gmail_block {
+    background: black;
+    padding: 100px 0;
+}
+
+.inner_gmail_block {
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-evenly;
+    border: 1px solid var(--orange);
+    height: 300px;
+    border-radius: 20px;
+    align-items: center;
+}
+
+.form_gmail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form_gmail button {
+    width: 100%;
+    margin: 20px 0;
+}
+
+/* MOVE BLOCK */
+
+.move_block {
+    background: black;
+    padding: 100px 0;
+}
+
+.parent_block {
+    height: 500px;
+    width: 500px;
+    border: 1px solid var(--orange);
+    position: relative;
+    margin: 0 auto;
+    overflow: hidden;
+    background-image: url('https://img.freepik.com/premium-photo/clouds-blue-sky-background_887552-22539.jpg');
+    background-size: cover;
+}
+
+.airplane {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50px;
+    height: auto;
+    transition: all 0.1s ease-in-out;
+}
+
+
+/*-------STOP WATCH------ */
+
+.time {
+    color: white;
+    display: flex;
+    justify-content: center;
+    font-size: 80px;
+    height: 100px;
+    width: 100%;
+    border-bottom: 1px solid var(--orange);
+    margin-top: 40px;
+}
+
+.time_block {
+    display: flex;
+    width: 500px;
+    justify-content: center;
+}
+
+.stopwatch {
+    padding: 100px 0;
+    background: black;
+}
+
+.time_buttons {
+    margin-top: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
