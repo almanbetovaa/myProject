@@ -42,7 +42,7 @@ setTimeout(() =>{
         openModal()
         window.removeEventListener('scroll', handleScroll)
     }
-}, 10000)
+}, 20000)
 
 
 // bot

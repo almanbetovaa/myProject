@@ -2,7 +2,7 @@ const gmailInput = document.querySelector('#gmail_input')
 const gmailButton = document.querySelector('#gmail_button')
 const gmailResult = document.querySelector('#gmail_result')
 
-const regExp = /^[A-Za-z0-9.]+@gmail\.com$/
+const regExp = /^[A-Za-z]{3,}@[A-Za-z0-9.]+\.[A-Za-z]{2,}$/
 
 gmailButton.onclick = () => {
     if (regExp.test(gmailInput.value)){
@@ -56,41 +56,71 @@ const reset = document.querySelector('#reset')
 
 let timer = 0
 let interval = null
+let running = false
 
-function counter (){
-    document.getElementById("seconds").textContent= timer
-}
-function startCounter (){
-    clearInterval(interval)
-    interval= setInterval(()=> {
-        timer++
-        counter()
-    }, 1000)
+const counter = () =>{
+    document.getElementById('seconds').textContent = timer
 }
 
-function stopCounter (){
-    clearInterval(interval)
+const startCounter = () =>{
+    if (!running) {
+        running = true
+        interval = setInterval(() =>{
+            timer++
+            counter()
+        }, 1000)
+    }
 }
-function resetCounter (){
+
+const stopCounter = () =>{
+    clearInterval(interval)
+    running = false
+}
+const resetCounter = () =>{
     clearInterval(interval)
     timer = 0
     counter()
+    running = false
 }
+
 start.addEventListener("click", startCounter)
 stop.addEventListener("click", stopCounter)
 reset.addEventListener("click", resetCounter)
 
-const checkGuess =() =>{
+
+//game
+let attempts = 5;
+
+const checkGuess = () => {
+    if (attempts === 0) {
+        document.getElementById('result').innerHTML = 'Игра окончена. Вы использовали все попытки' +  '&#9785;'
+        return;
+    }
+
     const randomNumber = Math.floor(Math.random() * 100) + 1
     const userGuess = parseInt(document.getElementById('guess').value)
+    const resultDisplay = document.getElementById('result')
+
     if (userGuess === randomNumber) {
-        document.getElementById('result').innerHTML = 'Поздравляем! Вы угадали правильное число!'
+        resultDisplay.innerHTML = 'Поздравляем! Вы угадали правильное число! Свяжитесь с нами для получения своего выигрыша !';
     } else if (userGuess < randomNumber) {
-        document.getElementById('result').innerHTML = 'Попробуйте число побольше'
+        resultDisplay.innerHTML = 'Попробуйте число побольше'
     } else {
-        document.getElementById('result').innerHTML = 'Попробуйте число поменьше'
+        resultDisplay.innerHTML = 'Попробуйте число поменьше'
     }
+    resultDisplay.classList.add('blink')
+    setTimeout(() => {
+        resultDisplay.classList.remove('blink')
+    }, 2000)
+
+    attempts--
+    document.getElementById('attempts').innerHTML = attempts
 }
+
+document.getElementById('checkButton').addEventListener('click', checkGuess)
+
+
+
 
 
 

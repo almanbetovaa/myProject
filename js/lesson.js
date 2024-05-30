@@ -122,10 +122,12 @@ const loadCardData = async(id) =>{
             <span>${data.id}</span>
         `
     } catch (error) {
-        console.error(error)
+        console.log(error)
     }
 }
 const setCardId = (id) => id< 1? 200 : id >200 ? 1 :id
+
+loadCardData(cardId)
 
 window.onload = async ()=>{
     await loadCardData(cardId)
